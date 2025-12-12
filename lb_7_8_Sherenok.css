@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    background: #f5f5f7;
+    color: #2b3a55;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 span {
+    color: #e63946;
+}
+
+.gallery {
+    display: grid;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    transition: box-shadow 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.card img {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    flex-basis: 100%;      
+    margin: 0;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px 10px;
+}
+
+.buttons button {
+    padding: 12px;
+    background: #d9e2ec;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.filters {
+    display: none; 
+    background: #eef2f6;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 260px;
+}
+
+.filters button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #d9e2ec;
+}
+
+.filters input[type="range"] {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #e6e9ef;
+    font-size: 14px;
+}
+
+footer a {
+    color: #2b3a55;
+    text-decoration: none;
+}
+
+@media (max-width: 730px) {
+
+  .gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    transition: box-shadow 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  .card-info,
+  .cal {
+    display: none;
+  }
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.buttons a,
+.buttons button {
+    width: 100%;
+}
+  
+}
+
+@media (min-width: 730px) and (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content {
+        flex-direction: column;
+        padding: 20px 40px;
+    }
+
+    footer {
+        text-align: right;
+        padding-right: 40px;
+        background: #dfe6ee;
+    }
+     .buttons {
+        grid-template-columns: repeat(3, 2fr); 
+    }
+}
+
+@media (min-width: 1200px) {
+    .buttons {
+        display: none;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .content {
+        display: flex;
+        flex-direction: row;
+        padding: 40px 80px;
+    }
+
+    .filters {
+        display: block; 
+    }
+
+    footer {
+        background: #edf1f5;
+        text-align: right;
+        padding-right: 80px;
+    }
+}
+
+.card[data-type] { opacity: 1; transition: 0.3s; }
+
+:not(:target) ~ main .card { opacity: 1; }
+
+#pie:target  ~ main .gallery .card:not([data-type="pie"]) { opacity: 0.2; }
+#roll:target ~ main .gallery .card:not([data-type="roll"]) { opacity: 0.2; }
+#sir:target  ~ main .gallery .card:not([data-type="sir"])  { opacity: 0.2; }
+#cake:target ~ main .gallery .card:not([data-type="cake"]) { opacity: 0.2; }
+#tort:target ~ main .gallery .card:not([data-type="tort"]) { opacity: 0.2; }
